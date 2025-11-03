@@ -1,0 +1,25 @@
+# Ignore virtual environments
+venv/
+.env/
+
+# Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# macOS system files
+.DS_Store
+
+# VSCode settings
+.vscode/
+
+# Data artifacts (optional)
+data/processed/
+data/labeled/
+
+# Environment files
+.env
