@@ -18,8 +18,10 @@ __pycache__/
 .vscode/
 
 # Data artifacts (optional)
-data/processed/
-data/labeled/
+# data/processed/
+# data/labeled/
+# data/raw/
+data/
 
 # Environment files
 .env
