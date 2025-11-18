@@ -22,3 +22,6 @@ __pycache__/
 
 # Environment files
 .env
+
+# Data artifacts - EXCLUDE PDFs FROM GIT
+data/raw/*.pdf           # Don't track PDFs
