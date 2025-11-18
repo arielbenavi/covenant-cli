@@ -25,3 +25,6 @@ __pycache__/
 
 # Data artifacts - EXCLUDE PDFs FROM GIT
 data/raw/*.pdf           # Don't track PDFs
+
+# Google Drive API credentials
+service_account.json

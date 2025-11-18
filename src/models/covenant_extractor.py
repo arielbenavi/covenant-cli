@@ -7,6 +7,7 @@ import requests
 import os
 from typing import List, Dict, Optional
 import json
+import yaml
 from pathlib import Path
 from dotenv import load_dotenv
 import src
@@ -19,199 +20,7 @@ class CovenantExtractor:
     Extract covenant clauses using LLM API.
     This creates our initial labeled dataset.
     """
-    
-    EXTRACTION_PROMPT = """You are a credit lawyer analyzing a credit agreement. Extract ALL covenant clauses related to liquidity timing and control.
 
-**COVENANT TAXONOMY (from CLI Research Paper - Appendix Tables 4-6)**
-
-The covenants are organized into 3 dimensions, each with specific covenant types listed IN ORDER OF IMPORTANCE:
-
----
-**DIMENSION E: EXIT ENGINEERING (Weight: 40%)**
-Covenants that determine WHEN and HOW capital can exit. Extract these types:
-
-1. **Call protection** - Prepayment premium or lock-out period (CRITICAL)
-2. **Make-whole** - Fee equal to PV of forgone coupons
-3. **Change-of-control put** - Mandatory prepayment at premium on ownership change
-4. **Portability** - Debt allowed to remain post-sale under tests
-5. **Mandatory redemption** - Asset sale or insurance proceeds repay debt
-6. **Continuation/GP-led** - Pre-consented transfer to continuation vehicle
-7. **Springing maturity** - Pulls maturity forward if other debt not refinanced
-8. **Intercreditor release** - Defines when liens or guarantees drop
-
----
-**DIMENSION O: OPTIONALITY STRUCTURING (Weight: 35%)**
-Covenants that balance borrower flexibility and investor pacing. Extract these types:
-
-1. **PIK toggle** - Option to accrue rather than pay cash interest (MOST CRITICAL)
-2. **Accordion/incremental** - Ability to upsize existing facilities
-3. **MFN/MFN sunset** - Keeps existing spreads within margin bands
-4. **Equity kicker/warrants** - Lender participation in equity upside
-5. **Amend/waiver thresholds** - Lender approval required to alter terms
-6. **EBITDA add-backs** - Permitted profit adjustments for tests
-7. **Cure rights (equity cure)** - Sponsor contribution to restore ratios
-8. **Reclassification baskets** - Ability to shift capacity across baskets
-
----
-**DIMENSION P: CASH-FLOW PACING (Weight: 25%)**
-Covenants that regulate the rate and continuity of liquidity realization. Extract these types:
-
-1. **Mandatory cash sweep** - Portion of excess cash automatically used to repay debt (CRITICAL)
-2. **Restricted payments** - Limits dividends or distributions while debt remains
-3. **Debt incurrence tests** - Conditions for issuing additional debt
-4. **Maintenance covenants** - Ongoing leverage or coverage requirements
-5. **NAV/LTV triggers** - Loan-to-value thresholds at fund level
-6. **Distribution lock-up** - Suspends payouts under specified conditions
-7. **Cash dominion/blocked account** - Lender control of receipts upon trigger
-8. **Information rights** - Frequency and scope of borrower reporting
-9. **Cross-default/acceleration** - Default elsewhere triggers default here
-10. **Prepayment waterfall** - Order of application across tranches
-
----
-
-**SCORING RULES (1-5 scale):**
-
-**Exit Engineering Intensity:**
-- 5: ≥3 years call protection + defined make-whole formula + tight portability
-- 4: 2-3 years call protection + some premium + moderate terms
-- 3: 1-2 years protection + basic change-of-control
-- 2: <1 year protection + weak/discretionary exits
-- 1: No call protection, unlimited prepayment flexibility
-
-**Optionality Intensity (balance = higher score):**
-- 5: Ratio-gated PIK with ≥100bps step-up + tight accordion/MFN (disciplined flexibility)
-- 4: Some ratio gates or step-ups + moderate baskets
-- 3: Discretionary toggles with limits + standard add-backs
-- 2: Broad flexibility with few constraints + loose amendment thresholds
-- 1: Unlimited optionality, no pacing discipline (covenant-lite)
-
-**Cash-Flow Pacing Intensity:**
-- 5: ≥75% ECF sweep + automatic trigger + quarterly NAV/LTV + distribution lock-up
-- 4: 50-75% sweep + semi-annual tests + moderate restrictions
-- 3: 50% sweep + annual tests + some maintenance covenants
-- 2: <50% sweep + discretionary tests + weak restrictions
-- 1: No cash sweep provisions, no maintenance covenants
-
----
-
-**KEY SCORING NOTES:**
-1. **PIK toggle** is the MOST IMPORTANT covenant in Optionality - if present, it should heavily influence the O score
-2. **Call protection** and **Make-whole** are critical for Exit Engineering
-3. **Mandatory cash sweep** is critical for Cash-Flow Pacing
-4. Within each dimension, weight covenant types by their order in the list above (earlier = more important)
-5. Look for NUMERIC VALUES: years, percentages, basis points, ratios - these determine intensity
-
----
-
-**OUTPUT FORMAT:**
-Return a JSON array with each covenant as an object:
-
-[
-  {{
-    "dimension": "E" | "O" | "P",
-    "covenant_type": "call_protection" | "PIK_toggle" | "mandatory_cash_sweep" | etc.,
-    "text": "exact quoted text from agreement (200-500 chars)",
-    "section_reference": "Section X.X or page number",
-    "intensity_score": 1-5,
-    "intensity_rationale": "specific numbers: X years, Y%, Z bps, ratio gates",
-    "numeric_values": {{
-      "years": X,
-      "percentage": Y,
-      "basis_points": Z,
-      "ratio": "X.Xx"
-    }}
-  }}
-]
-
----
-
-**EXTRACTION INSTRUCTIONS:**
-1. Read the ENTIRE agreement - covenants appear in Articles 4-8 typically
-2. For EACH covenant type listed above, search for it specifically
-3. Extract the EXACT text (quote directly, 200-500 chars)
-4. Identify NUMERIC parameters (years, %, bps, ratios)
-5. Score 1-5 based on the numeric values and rules above
-6. Aim for 15-25 covenants per document (not all types will be present)
-7. If a covenant type is ABSENT, do not include it (absence = weak structure)
-8. Return ONLY the JSON array, no other text
-
----
-
-**CREDIT AGREEMENT TEXT:**
-{contract_text}"""
-    SUB_WEIGHTS_EQUAL = {
-        'E': {
-            'call_protection': 0.125,
-            'make_whole': 0.125,
-            'change_of_control': 0.125,
-            'portability': 0.125,
-            'mandatory_redemption': 0.125,
-            'continuation': 0.125,
-            'springing_maturity': 0.125,
-            'intercreditor_release': 0.125
-        },
-        'O': {
-            'PIK_toggle': 0.125,
-            'accordion': 0.125,
-            'MFN': 0.125,
-            'equity_kicker': 0.125,
-            'amend_waiver': 0.125,
-            'EBITDA_addbacks': 0.125,
-            'cure_rights': 0.125,
-            'reclassification': 0.125
-        },
-        'P': {
-            'mandatory_cash_sweep': 0.10,
-            'restricted_payments': 0.10,
-            'debt_incurrence': 0.10,
-            'maintenance_covenants': 0.10,
-            'NAV_LTV_trigger': 0.10,
-            'distribution_lockup': 0.10,
-            'cash_dominion': 0.10,
-            'information_rights': 0.10,
-            'cross_default': 0.10,
-            'prepayment_waterfall': 0.10
-        }
-    }
-    SUB_WEIGHTS_IMPORTANCE = {
-        'E': {  # Exit Engineering - order matters
-            'call_protection': 0.25,
-            'make_whole': 0.20,
-            'change_of_control': 0.15,
-            'portability': 0.10,
-            'mandatory_redemption': 0.10,
-            'continuation': 0.10,
-            'springing_maturity': 0.05,
-            'intercreditor_release': 0.05
-        },
-        'O': {  # Optionality - PIK is KING
-            'PIK_toggle': 0.35,  # Most important!
-            'accordion': 0.15,
-            'MFN': 0.12,
-            'equity_kicker': 0.10,
-            'amend_waiver': 0.10,
-            'EBITDA_addbacks': 0.08,
-            'cure_rights': 0.06,
-            'reclassification': 0.04
-        },
-        'P': {  # Cash-Flow Pacing
-            'mandatory_cash_sweep': 0.25,  # Most important!
-            'restricted_payments': 0.15,
-            'debt_incurrence': 0.12,
-            'maintenance_covenants': 0.12,
-            'NAV_LTV_trigger': 0.10,
-            'distribution_lockup': 0.08,
-            'cash_dominion': 0.06,
-            'information_rights': 0.05,
-            'cross_default': 0.04,
-            'prepayment_waterfall': 0.03
-        }
-    }
-    CRITICAL_COVENANTS = {
-        'E': ['call_protection', 'make_whole'],
-        'O': ['PIK_toggle'],
-        'P': ['mandatory_cash_sweep', 'maintenance_covenants']
-    }
 
     def __init__(self, provider: str = "claude", api_key: Optional[str] = None):
         """
@@ -223,12 +32,43 @@ Return a JSON array with each covenant as an object:
         """
         self.provider = provider.lower()
         
+        # Load configuration files
+        self._load_config()
+        
         if self.provider == "claude":
             self.client = anthropic.Anthropic(
                 api_key=api_key or os.getenv('ANTHROPIC_API_KEY')
             )
         else:
             raise ValueError(f"Unknown provider: {provider}. Use 'claude'")
+    
+    def _load_config(self):
+        """Load master prompt and weights from config files."""
+        config_dir = Path(__file__).parent.parent.parent / 'config'
+        
+        # Load master prompt
+        prompt_path = config_dir / 'master_prompt.txt'
+        if not prompt_path.exists():
+            raise FileNotFoundError(f"Master prompt not found: {prompt_path}")
+        
+        with open(prompt_path, 'r') as f:
+            self.EXTRACTION_PROMPT = f.read()
+        
+        # Load weights
+        weights_path = config_dir / 'covenant_weights.yaml'
+        if not weights_path.exists():
+            raise FileNotFoundError(f"Weights config not found: {weights_path}")
+        
+        with open(weights_path, 'r') as f:
+            config = yaml.safe_load(f)
+        
+        # Store all config values
+        self.dimension_weights = config['dimension_weights']
+        self.beta = config['interaction_coefficient']
+        self.SUB_WEIGHTS_EQUAL = config['sub_weights_equal']
+        self.SUB_WEIGHTS_IMPORTANCE = config['sub_weights_importance']
+        self.CRITICAL_COVENANTS = config['critical_covenants']
+        self.coherence_params = config['coherence_params']
     
     def extract_covenants(self, contract_text: str, filename: str = "unknown") -> Dict:
         """
@@ -359,12 +199,20 @@ Return a JSON array with each covenant as an object:
         beta = 0.15
         
         # Calculate base CLI (additive only)
-        CLI_equal_base = 0.40 * E_eq + 0.35 * O_eq + 0.25 * P_eq
-        CLI_importance_base = 0.40 * E_imp + 0.35 * O_imp + 0.25 * P_imp
-        
+        CLI_equal_base = (
+            self.dimension_weights['E'] * E_eq + 
+            self.dimension_weights['O'] * O_eq + 
+            self.dimension_weights['P'] * P_eq
+        )
+        CLI_importance_base = (
+            self.dimension_weights['E'] * E_imp + 
+            self.dimension_weights['O'] * O_imp + 
+            self.dimension_weights['P'] * P_imp
+        )
+
         # Calculate interaction terms
-        interaction_equal = beta * rho_OP * (O_eq * P_eq)
-        interaction_importance = beta * rho_OP * (O_imp * P_imp)
+        interaction_equal = self.beta * rho_OP * (O_eq * P_eq)
+        interaction_importance = self.beta * rho_OP * (O_imp * P_imp)
         
         # Final CLI with interaction (full formula from paper)
         CLI_equal_full = CLI_equal_base + interaction_equal
@@ -404,28 +252,30 @@ Return a JSON array with each covenant as an object:
     def _calculate_rho_OP(self, O_covenants: Dict, P_covenants: Dict) -> float:
         """Calculate structural coherence between O and P."""
         alignment = 0.0
+        params = self.coherence_params  # Use config values
         
         # Calculate averages
         O_avg = sum(O_covenants.values()) / len(O_covenants) if O_covenants else 1.0
         P_avg = sum(P_covenants.values()) / len(P_covenants) if P_covenants else 1.0
         
         # --- POSITIVE ALIGNMENT ---
-        has_tight_pik = 'PIK_toggle' in O_covenants and O_covenants['PIK_toggle'] >= 4
+        has_tight_pik = ('PIK_toggle' in O_covenants and 
+                        O_covenants['PIK_toggle'] >= params['tight_pik_threshold'])
         has_cash_sweep = 'mandatory_cash_sweep' in P_covenants
         has_maintenance = 'maintenance_covenants' in P_covenants
         
         if has_tight_pik and (has_cash_sweep or has_maintenance):
-            alignment += 0.4
+            alignment += params['alignment_bonus_tight_pik_with_pacing']
         
         # --- NEGATIVE ALIGNMENT ---
         
         # Pattern 1: Both dimensions weak (covenant-lite)
-        if O_avg <= 2.75 and P_avg <= 2.75:  # ← Relaxed from 2.5 to 2.75
-            alignment -= 0.3
+        if O_avg <= params['weak_dimension_threshold'] and P_avg <= params['weak_dimension_threshold']:
+            alignment += params['penalty_both_weak']
             
             # Extra penalty if BOTH are very weak
-            if O_avg <= 2.0 and P_avg <= 2.0:
-                alignment -= 0.2  # Total -0.5
+            if O_avg <= params['very_weak_threshold'] and P_avg <= params['very_weak_threshold']:
+                alignment += params['penalty_both_very_weak']
         
         # Pattern 2: Missing critical covenants in BOTH dimensions
         missing_O_critical = 'PIK_toggle' not in O_covenants
@@ -435,19 +285,19 @@ Return a JSON array with each covenant as an object:
         )
         
         if missing_O_critical and missing_P_critical:
-            alignment -= 0.3  # Neither dimension has discipline
+            alignment += params['penalty_missing_critical']
         
-        # Pattern 3: Weak amendment thresholds (can bypass everything)
+        # Pattern 3: Weak amendment thresholds
         has_weak_amend = 'amend_waiver' in O_covenants and O_covenants['amend_waiver'] <= 2
         if has_weak_amend:
-            alignment -= 0.3
+            alignment += params['penalty_weak_amendment']
         
         # Pattern 4: Loose PIK + No sweep
         has_loose_pik = 'PIK_toggle' in O_covenants and O_covenants['PIK_toggle'] <= 2
         no_cash_sweep = 'mandatory_cash_sweep' not in P_covenants
         
         if has_loose_pik and no_cash_sweep:
-            alignment -= 0.4
+            alignment += params['penalty_loose_pik_no_sweep']
         
         return max(-1.0, min(1.0, alignment))
 

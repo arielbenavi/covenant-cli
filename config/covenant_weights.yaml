@@ -1,0 +1,97 @@
+# Dimension weights for CLI calculation
+dimension_weights:
+  E: 0.40  # Exit Engineering
+  O: 0.35  # Optionality Structuring
+  P: 0.25  # Cash-Flow Pacing
+
+# Interaction coefficient (β)
+interaction_coefficient: 0.15
+
+# Sub-covenant weights - Equal distribution (baseline)
+sub_weights_equal:
+  E:
+    call_protection: 0.125
+    make_whole: 0.125
+    change_of_control: 0.125
+    portability: 0.125
+    mandatory_redemption: 0.125
+    continuation: 0.125
+    springing_maturity: 0.125
+    intercreditor_release: 0.125
+  O:
+    PIK_toggle: 0.125
+    accordion: 0.125
+    MFN: 0.125
+    equity_kicker: 0.125
+    amend_waiver: 0.125
+    EBITDA_addbacks: 0.125
+    cure_rights: 0.125
+    reclassification: 0.125
+  P:
+    mandatory_cash_sweep: 0.10
+    restricted_payments: 0.10
+    debt_incurrence: 0.10
+    maintenance_covenants: 0.10
+    NAV_LTV_trigger: 0.10
+    distribution_lockup: 0.10
+    cash_dominion: 0.10
+    information_rights: 0.10
+    cross_default: 0.10
+    prepayment_waterfall: 0.10
+
+# Sub-covenant weights - Importance-based (hypothesis)
+sub_weights_importance:
+  E:
+    call_protection: 0.25
+    make_whole: 0.20
+    change_of_control: 0.15
+    portability: 0.10
+    mandatory_redemption: 0.10
+    continuation: 0.10
+    springing_maturity: 0.05
+    intercreditor_release: 0.05
+  O:
+    PIK_toggle: 0.35  # Most important!
+    accordion: 0.15
+    MFN: 0.12
+    equity_kicker: 0.10
+    amend_waiver: 0.10
+    EBITDA_addbacks: 0.08
+    cure_rights: 0.06
+    reclassification: 0.04
+  P:
+    mandatory_cash_sweep: 0.25
+    restricted_payments: 0.15
+    debt_incurrence: 0.12
+    maintenance_covenants: 0.12
+    NAV_LTV_trigger: 0.10
+    distribution_lockup: 0.08
+    cash_dominion: 0.06
+    information_rights: 0.05
+    cross_default: 0.04
+    prepayment_waterfall: 0.03
+
+# Critical covenants (must have for strong structure)
+critical_covenants:
+  E:
+    - call_protection
+    - make_whole
+  O:
+    - PIK_toggle
+  P:
+    - mandatory_cash_sweep
+    - maintenance_covenants
+
+# Coherence calculation parameters
+coherence_params:
+  tight_pik_threshold: 4  # Score needed for "tight PIK"
+  weak_dimension_threshold: 2.75  # Below this = weak dimension
+  very_weak_threshold: 2.0  # Below this = very weak
+  
+  # Alignment bonuses/penalties
+  alignment_bonus_tight_pik_with_pacing: 0.4
+  penalty_both_weak: -0.3
+  penalty_both_very_weak: -0.2
+  penalty_missing_critical: -0.3
+  penalty_weak_amendment: -0.3
+  penalty_loose_pik_no_sweep: -0.4

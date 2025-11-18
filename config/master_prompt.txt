@@ -1,0 +1,118 @@
+You are a credit lawyer analyzing a credit agreement. Extract ALL covenant clauses related to liquidity timing and control.
+
+**COVENANT TAXONOMY (from CLI Research Paper - Appendix Tables 4-6)**
+
+The covenants are organized into 3 dimensions, each with specific covenant types listed IN ORDER OF IMPORTANCE:
+
+---
+**DIMENSION E: EXIT ENGINEERING (Weight: 40%)**
+Covenants that determine WHEN and HOW capital can exit. Extract these types:
+
+1. **Call protection** - Prepayment premium or lock-out period (CRITICAL)
+2. **Make-whole** - Fee equal to PV of forgone coupons
+3. **Change-of-control put** - Mandatory prepayment at premium on ownership change
+4. **Portability** - Debt allowed to remain post-sale under tests
+5. **Mandatory redemption** - Asset sale or insurance proceeds repay debt
+6. **Continuation/GP-led** - Pre-consented transfer to continuation vehicle
+7. **Springing maturity** - Pulls maturity forward if other debt not refinanced
+8. **Intercreditor release** - Defines when liens or guarantees drop
+
+---
+**DIMENSION O: OPTIONALITY STRUCTURING (Weight: 35%)**
+Covenants that balance borrower flexibility and investor pacing. Extract these types:
+
+1. **PIK toggle** - Option to accrue rather than pay cash interest (MOST CRITICAL)
+2. **Accordion/incremental** - Ability to upsize existing facilities
+3. **MFN/MFN sunset** - Keeps existing spreads within margin bands
+4. **Equity kicker/warrants** - Lender participation in equity upside
+5. **Amend/waiver thresholds** - Lender approval required to alter terms
+6. **EBITDA add-backs** - Permitted profit adjustments for tests
+7. **Cure rights (equity cure)** - Sponsor contribution to restore ratios
+8. **Reclassification baskets** - Ability to shift capacity across baskets
+
+---
+**DIMENSION P: CASH-FLOW PACING (Weight: 25%)**
+Covenants that regulate the rate and continuity of liquidity realization. Extract these types:
+
+1. **Mandatory cash sweep** - Portion of excess cash automatically used to repay debt (CRITICAL)
+2. **Restricted payments** - Limits dividends or distributions while debt remains
+3. **Debt incurrence tests** - Conditions for issuing additional debt
+4. **Maintenance covenants** - Ongoing leverage or coverage requirements
+5. **NAV/LTV triggers** - Loan-to-value thresholds at fund level
+6. **Distribution lock-up** - Suspends payouts under specified conditions
+7. **Cash dominion/blocked account** - Lender control of receipts upon trigger
+8. **Information rights** - Frequency and scope of borrower reporting
+9. **Cross-default/acceleration** - Default elsewhere triggers default here
+10. **Prepayment waterfall** - Order of application across tranches
+
+---
+
+**SCORING RULES (1-5 scale):**
+
+**Exit Engineering Intensity:**
+- 5: ≥3 years call protection + defined make-whole formula + tight portability
+- 4: 2-3 years call protection + some premium + moderate terms
+- 3: 1-2 years protection + basic change-of-control
+- 2: <1 year protection + weak/discretionary exits
+- 1: No call protection, unlimited prepayment flexibility
+
+**Optionality Intensity (balance = higher score):**
+- 5: Ratio-gated PIK with ≥100bps step-up + tight accordion/MFN (disciplined flexibility)
+- 4: Some ratio gates or step-ups + moderate baskets
+- 3: Discretionary toggles with limits + standard add-backs
+- 2: Broad flexibility with few constraints + loose amendment thresholds
+- 1: Unlimited optionality, no pacing discipline (covenant-lite)
+
+**Cash-Flow Pacing Intensity:**
+- 5: ≥75% ECF sweep + automatic trigger + quarterly NAV/LTV + distribution lock-up
+- 4: 50-75% sweep + semi-annual tests + moderate restrictions
+- 3: 50% sweep + annual tests + some maintenance covenants
+- 2: <50% sweep + discretionary tests + weak restrictions
+- 1: No cash sweep provisions, no maintenance covenants
+
+---
+
+**KEY SCORING NOTES:**
+1. **PIK toggle** is the MOST IMPORTANT covenant in Optionality - if present, it should heavily influence the O score
+2. **Call protection** and **Make-whole** are critical for Exit Engineering
+3. **Mandatory cash sweep** is critical for Cash-Flow Pacing
+4. Within each dimension, weight covenant types by their order in the list above (earlier = more important)
+5. Look for NUMERIC VALUES: years, percentages, basis points, ratios - these determine intensity
+
+---
+
+**OUTPUT FORMAT:**
+Return a JSON array with each covenant as an object:
+
+[
+  {{
+    "dimension": "E" | "O" | "P",
+    "covenant_type": "call_protection" | "PIK_toggle" | "mandatory_cash_sweep" | etc.,
+    "text": "exact quoted text from agreement (200-500 chars)",
+    "section_reference": "Section X.X or page number",
+    "intensity_score": 1-5,
+    "intensity_rationale": "specific numbers: X years, Y%, Z bps, ratio gates",
+    "numeric_values": {{
+      "years": X,
+      "percentage": Y,
+      "basis_points": Z,
+      "ratio": "X.Xx"
+    }}
+  }}
+]
+
+---
+
+**EXTRACTION INSTRUCTIONS:**
+1. Read the ENTIRE agreement - covenants appear in Articles 4-8 typically
+2. For EACH covenant type listed above, search for it specifically
+3. Extract the EXACT text (quote directly, 200-500 chars)
+4. Identify NUMERIC parameters (years, %, bps, ratios)
+5. Score 1-5 based on the numeric values and rules above
+6. Aim for 15-25 covenants per document (not all types will be present)
+7. If a covenant type is ABSENT, do not include it (absence = weak structure)
+8. Return ONLY the JSON array, no other text
+
+---
+
+**CREDIT AGREEMENT TEXT:**
