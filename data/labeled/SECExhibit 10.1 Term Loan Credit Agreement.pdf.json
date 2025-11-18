@@ -1,0 +1,190 @@
+{
+  "filename": "SECExhibit 10.1 Term Loan Credit Agreement.pdf",
+  "covenants": [
+    {
+      "dimension": "E",
+      "covenant_type": "mandatory_redemption",
+      "text": "In the event that the aggregate Net Proceeds received by the Borrower and its Restricted Subsidiaries from Asset Sales in any fiscal year exceed $100.0 million (such excess, the 'Excess Proceeds'), the Borrower shall make an offer to all Lenders to prepay Loans in an aggregate principal amount equal to such Excess Proceeds",
+      "section_reference": "Section 8.4(c)",
+      "intensity_score": 4,
+      "intensity_rationale": "Mandatory prepayment triggered at $100M threshold with automatic application",
+      "numeric_values": {
+        "percentage": null,
+        "basis_points": null,
+        "ratio": null,
+        "threshold": 100000000
+      }
+    },
+    {
+      "dimension": "E",
+      "covenant_type": "intercreditor_release",
+      "text": "If, at any time the Applicable Collateral Agent forecloses upon or otherwise exercises remedies against any Shared Collateral resulting in a sale or disposition thereof, then the Liens in favor of each other Collateral Agent for the benefit of each Series of Secured Parties upon such Shared Collateral will automatically be released and discharged",
+      "section_reference": "Section 2.04(a) of ABL Intercreditor Agreement",
+      "intensity_score": 3,
+      "intensity_rationale": "Automatic release mechanism upon foreclosure with defined waterfall",
+      "numeric_values": {
+        "years": null,
+        "percentage": null,
+        "basis_points": null,
+        "ratio": null
+      }
+    },
+    {
+      "dimension": "O",
+      "covenant_type": "accordion_incremental",
+      "text": "The Borrower may request that the Commitments be increased by an aggregate amount not to exceed $200,000,000; provided that after giving effect to such increase, the aggregate amount of all Commitments shall not exceed $700,000,000",
+      "section_reference": "Section 2.14",
+      "intensity_score": 3,
+      "intensity_rationale": "Accordion facility with $200M capacity, moderate expansion capability",
+      "numeric_values": {
+        "years": null,
+        "percentage": null,
+        "basis_points": null,
+        "ratio": null,
+        "amount": 200000000
+      }
+    },
+    {
+      "dimension": "O",
+      "covenant_type": "amend_waiver_thresholds",
+      "text": "Neither this Agreement nor any provision hereof may be terminated, waived, amended or modified except pursuant to an agreement or agreements in writing entered into by the Administrative Agent and the Required Lenders (representing Lenders holding more than 50% of the sum of the aggregate unpaid principal amount of the Loans)",
+      "section_reference": "Section 11.1",
+      "intensity_score": 3,
+      "intensity_rationale": "Standard majority lender consent threshold at 50%",
+      "numeric_values": {
+        "years": null,
+        "percentage": 50,
+        "basis_points": null,
+        "ratio": null
+      }
+    },
+    {
+      "dimension": "P",
+      "covenant_type": "restricted_payments",
+      "text": "The Borrower shall not, and shall not permit any of its Restricted Subsidiaries to, directly or indirectly, make a Restricted Payment if at the time the Borrower or such Restricted Subsidiary makes such Restricted Payment: (1) a Default shall have occurred and be continuing; or (2) the Borrower is not able to incur at least $1.00 of additional Indebtedness pursuant to the Fixed Charge Coverage Ratio test",
+      "section_reference": "Section 8.1(a)",
+      "intensity_score": 4,
+      "intensity_rationale": "Restricted payments blocked during defaults and if coverage ratio test fails",
+      "numeric_values": {
+        "years": null,
+        "percentage": null,
+        "basis_points": null,
+        "ratio": "Fixed Charge Coverage Ratio"
+      }
+    },
+    {
+      "dimension": "P",
+      "covenant_type": "debt_incurrence_tests",
+      "text": "The Borrower shall not, and shall not permit any of its Restricted Subsidiaries to, directly or indirectly, create, incur, issue, assume, guarantee or otherwise become directly or indirectly liable with respect to any Indebtedness, except: Indebtedness of the Borrower and its Restricted Subsidiaries in an aggregate principal amount at any time outstanding not to exceed the greater of (x) $750.0 million and (y) 15% of Consolidated Net Tangible Assets",
+      "section_reference": "Section 8.3(a)(1)",
+      "intensity_score": 3,
+      "intensity_rationale": "Debt incurrence limited to greater of $750M or 15% of tangible assets",
+      "numeric_values": {
+        "years": null,
+        "percentage": 15,
+        "basis_points": null,
+        "ratio": null,
+        "amount": 750000000
+      }
+    },
+    {
+      "dimension": "P",
+      "covenant_type": "information_rights",
+      "text": "The Borrower shall deliver to the Administrative Agent and each Lender: (a) as soon as available, but in any event within 90 days after the end of each fiscal year, a consolidated balance sheet and related statements of operations, stockholders' equity and cash flows showing the financial position of the Borrower and its consolidated Subsidiaries as of the close of such fiscal year",
+      "section_reference": "Section 7.1(a)",
+      "intensity_score": 2,
+      "intensity_rationale": "Annual reporting within 90 days, standard frequency",
+      "numeric_values": {
+        "years": null,
+        "percentage": null,
+        "basis_points": null,
+        "ratio": null,
+        "days": 90
+      }
+    },
+    {
+      "dimension": "P",
+      "covenant_type": "cross_default_acceleration",
+      "text": "Any default in the payment of principal of, or interest on, any Indebtedness of the Borrower or any of its Restricted Subsidiaries (other than Indebtedness hereunder) having an aggregate principal amount of more than $75.0 million, or any other default with respect to any such Indebtedness that results in the acceleration of the maturity thereof prior to its stated maturity",
+      "section_reference": "Section 9.1(h)",
+      "intensity_score": 3,
+      "intensity_rationale": "Cross-default triggered at $75M threshold with acceleration provision",
+      "numeric_values": {
+        "years": null,
+        "percentage": null,
+        "basis_points": null,
+        "ratio": null,
+        "amount": 75000000
+      }
+    },
+    {
+      "dimension": "P",
+      "covenant_type": "prepayment_waterfall",
+      "text": "All proceeds of any sale, collection or other liquidation of any such Shared Collateral shall be applied (i) FIRST, to the payment of all amounts owing to each Collateral Agent, (ii) SECOND, to the payment in full of the Obligations of each Series on a ratable basis, (iii) THIRD, after payment of all Obligations, to the Borrower and the other Grantors",
+      "section_reference": "Section 2.01(a) of Equal Priority Intercreditor Agreement",
+      "intensity_score": 4,
+      "intensity_rationale": "Defined waterfall with agent fees first, then pro rata to obligations",
+      "numeric_values": {
+        "years": null,
+        "percentage": null,
+        "basis_points": null,
+        "ratio": null
+      }
+    }
+  ],
+  "raw_response": "Looking at this Term Loan Credit Agreement, I'll extract the covenant clauses related to liquidity timing and control according to the CLI taxonomy.\n\n```json\n[\n  {\n    \"dimension\": \"E\",\n    \"covenant_type\": \"mandatory_redemption\",\n    \"text\": \"In the event that the aggregate Net Proceeds received by the Borrower and its Restricted Subsidiaries from Asset Sales in any fiscal year exceed $100.0 million (such excess, the 'Excess Proceeds'), the Borrower shall make an offer to all Lenders to prepay Loans in an aggregate principal amount equal to such Excess Proceeds\",\n    \"section_reference\": \"Section 8.4(c)\",\n    \"intensity_score\": 4,\n    \"intensity_rationale\": \"Mandatory prepayment triggered at $100M threshold with automatic application\",\n    \"numeric_values\": {\n      \"percentage\": null,\n      \"basis_points\": null,\n      \"ratio\": null,\n      \"threshold\": 100000000\n    }\n  },\n  {\n    \"dimension\": \"E\",\n    \"covenant_type\": \"intercreditor_release\",\n    \"text\": \"If, at any time the Applicable Collateral Agent forecloses upon or otherwise exercises remedies against any Shared Collateral resulting in a sale or disposition thereof, then the Liens in favor of each other Collateral Agent for the benefit of each Series of Secured Parties upon such Shared Collateral will automatically be released and discharged\",\n    \"section_reference\": \"Section 2.04(a) of ABL Intercreditor Agreement\",\n    \"intensity_score\": 3,\n    \"intensity_rationale\": \"Automatic release mechanism upon foreclosure with defined waterfall\",\n    \"numeric_values\": {\n      \"years\": null,\n      \"percentage\": null,\n      \"basis_points\": null,\n      \"ratio\": null\n    }\n  },\n  {\n    \"dimension\": \"O\",\n    \"covenant_type\": \"accordion_incremental\",\n    \"text\": \"The Borrower may request that the Commitments be increased by an aggregate amount not to exceed $200,000,000; provided that after giving effect to such increase, the aggregate amount of all Commitments shall not exceed $700,000,000\",\n    \"section_reference\": \"Section 2.14\",\n    \"intensity_score\": 3,\n    \"intensity_rationale\": \"Accordion facility with $200M capacity, moderate expansion capability\",\n    \"numeric_values\": {\n      \"years\": null,\n      \"percentage\": null,\n      \"basis_points\": null,\n      \"ratio\": null,\n      \"amount\": 200000000\n    }\n  },\n  {\n    \"dimension\": \"O\",\n    \"covenant_type\": \"amend_waiver_thresholds\",\n    \"text\": \"Neither this Agreement nor any provision hereof may be terminated, waived, amended or modified except pursuant to an agreement or agreements in writing entered into by the Administrative Agent and the Required Lenders (representing Lenders holding more than 50% of the sum of the aggregate unpaid principal amount of the Loans)\",\n    \"section_reference\": \"Section 11.1\",\n    \"intensity_score\": 3,\n    \"intensity_rationale\": \"Standard majority lender consent threshold at 50%\",\n    \"numeric_values\": {\n      \"years\": null,\n      \"percentage\": 50,\n      \"basis_points\": null,\n      \"ratio\": null\n    }\n  },\n  {\n    \"dimension\": \"P\",\n    \"covenant_type\": \"restricted_payments\",\n    \"text\": \"The Borrower shall not, and shall not permit any of its Restricted Subsidiaries to, directly or indirectly, make a Restricted Payment if at the time the Borrower or such Restricted Subsidiary makes such Restricted Payment: (1) a Default shall have occurred and be continuing; or (2) the Borrower is not able to incur at least $1.00 of additional Indebtedness pursuant to the Fixed Charge Coverage Ratio test\",\n    \"section_reference\": \"Section 8.1(a)\",\n    \"intensity_score\": 4,\n    \"intensity_rationale\": \"Restricted payments blocked during defaults and if coverage ratio test fails\",\n    \"numeric_values\": {\n      \"years\": null,\n      \"percentage\": null,\n      \"basis_points\": null,\n      \"ratio\": \"Fixed Charge Coverage Ratio\"\n    }\n  },\n  {\n    \"dimension\": \"P\",\n    \"covenant_type\": \"debt_incurrence_tests\",\n    \"text\": \"The Borrower shall not, and shall not permit any of its Restricted Subsidiaries to, directly or indirectly, create, incur, issue, assume, guarantee or otherwise become directly or indirectly liable with respect to any Indebtedness, except: Indebtedness of the Borrower and its Restricted Subsidiaries in an aggregate principal amount at any time outstanding not to exceed the greater of (x) $750.0 million and (y) 15% of Consolidated Net Tangible Assets\",\n    \"section_reference\": \"Section 8.3(a)(1)\",\n    \"intensity_score\": 3,\n    \"intensity_rationale\": \"Debt incurrence limited to greater of $750M or 15% of tangible assets\",\n    \"numeric_values\": {\n      \"years\": null,\n      \"percentage\": 15,\n      \"basis_points\": null,\n      \"ratio\": null,\n      \"amount\": 750000000\n    }\n  },\n  {\n    \"dimension\": \"P\",\n    \"covenant_type\": \"information_rights\",\n    \"text\": \"The Borrower shall deliver to the Administrative Agent and each Lender: (a) as soon as available, but in any event within 90 days after the end of each fiscal year, a consolidated balance sheet and related statements of operations, stockholders' equity and cash flows showing the financial position of the Borrower and its consolidated Subsidiaries as of the close of such fiscal year\",\n    \"section_reference\": \"Section 7.1(a)\",\n    \"intensity_score\": 2,\n    \"intensity_rationale\": \"Annual reporting within 90 days, standard frequency\",\n    \"numeric_values\": {\n      \"years\": null,\n      \"percentage\": null,\n      \"basis_points\": null,\n      \"ratio\": null,\n      \"days\": 90\n    }\n  },\n  {\n    \"dimension\": \"P\",\n    \"covenant_type\": \"cross_default_acceleration\",\n    \"text\": \"Any default in the payment of principal of, or interest on, any Indebtedness of the Borrower or any of its Restricted Subsidiaries (other than Indebtedness hereunder) having an aggregate principal amount of more than $75.0 million, or any other default with respect to any such Indebtedness that results in the acceleration of the maturity thereof prior to its stated maturity\",\n    \"section_reference\": \"Section 9.1(h)\",\n    \"intensity_score\": 3,\n    \"intensity_rationale\": \"Cross-default triggered at $75M threshold with acceleration provision\",\n    \"numeric_values\": {\n      \"years\": null,\n      \"percentage\": null,\n      \"basis_points\": null,\n      \"ratio\": null,\n      \"amount\": 75000000\n    }\n  },\n  {\n    \"dimension\": \"P\",\n    \"covenant_type\": \"prepayment_waterfall\",\n    \"text\": \"All proceeds of any sale, collection or other liquidation of any such Shared Collateral shall be applied (i) FIRST, to the payment of all amounts owing to each Collateral Agent, (ii) SECOND, to the payment in full of the Obligations of each Series on a ratable basis, (iii) THIRD, after payment of all Obligations, to the Borrower and the other Grantors\",\n    \"section_reference\": \"Section 2.01(a) of Equal Priority Intercreditor Agreement\",\n    \"intensity_score\": 4,\n    \"intensity_rationale\": \"Defined waterfall with agent fees first, then pro rata to obligations\",\n    \"numeric_values\": {\n      \"years\": null,\n      \"percentage\": null,\n      \"basis_points\": null,\n      \"ratio\": null\n    }\n  }\n]\n```",
+  "provider": "claude",
+  "dimension_scores": {
+    "E": 2.25,
+    "O": 2.33,
+    "P": 2.57
+  },
+  "CLI_base": 2.36,
+  "CLI": 2.09,
+  "dimension_scores_importance": {
+    "E": 1.67,
+    "O": 1.83,
+    "P": 2.2
+  },
+  "CLI_importance_base": 1.86,
+  "CLI_importance": 1.68,
+  "rho_OP": -0.3,
+  "interaction_term_equal": -0.27,
+  "interaction_term_importance": -0.18,
+  "beta": 0.15,
+  "covenant_counts": {
+    "E": 2,
+    "O": 2,
+    "P": 5
+  },
+  "covenant_details": {
+    "E": {
+      "mandatory_redemption": 4,
+      "intercreditor_release": 3
+    },
+    "O": {
+      "accordion_incremental": 3,
+      "amend_waiver_thresholds": 3
+    },
+    "P": {
+      "restricted_payments": 4,
+      "debt_incurrence_tests": 3,
+      "information_rights": 2,
+      "cross_default_acceleration": 3,
+      "prepayment_waterfall": 4
+    }
+  },
+  "missing_critical_covenants": {
+    "E": [
+      "call_protection",
+      "make_whole"
+    ],
+    "O": [
+      "PIK_toggle"
+    ],
+    "P": [
+      "mandatory_cash_sweep",
+      "maintenance_covenants"
+    ]
+  }
+}

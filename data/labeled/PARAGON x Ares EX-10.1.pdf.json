@@ -1,0 +1,210 @@
+{
+  "filename": "PARAGON x Ares EX-10.1.pdf",
+  "covenants": [
+    {
+      "dimension": "O",
+      "covenant_type": "PIK_toggle",
+      "text": "at the election of Administrative Borrower, 50% of the Applicable Margin portion of any interest payment that is due on a Term Loan in accordance with Sections 2.08(a) or (b) of this Agreement prior to the second anniversary of the Closing Date may be paid in kind (a \"PIK Election\")",
+      "section_reference": "Section 1.01 - Applicable Margin definition",
+      "intensity_score": 4,
+      "intensity_rationale": "50% PIK toggle with 75bps step-up and 2-year time limit provides disciplined flexibility",
+      "numeric_values": {
+        "percentage": 50,
+        "basis_points": 75,
+        "years": 2
+      }
+    },
+    {
+      "dimension": "E",
+      "covenant_type": "call_protection",
+      "text": "prior to the second anniversary of the Closing Date may be paid in kind",
+      "section_reference": "Section 1.01 - Applicable Margin definition",
+      "intensity_score": 3,
+      "intensity_rationale": "2-year protection period for PIK election provides moderate call protection",
+      "numeric_values": {
+        "years": 2
+      }
+    },
+    {
+      "dimension": "E",
+      "covenant_type": "prepayment_premium",
+      "text": "all Obligations of the Borrowers owing to such Non-Consenting Lender (including any Prepayment Premium) being replaced shall be paid in full",
+      "section_reference": "Section 12.07(b)",
+      "intensity_score": 2,
+      "intensity_rationale": "Prepayment premium referenced but specific terms not defined in visible text",
+      "numeric_values": {}
+    },
+    {
+      "dimension": "P",
+      "covenant_type": "mandatory_cash_sweep",
+      "text": "Cash Dominion Event means (i) the occurrence of a Specified Event of Default or (ii) Availability being less than the greater of (1) $7,500,000 and (2) 12.5% of the Maximum Revolver Amount for a period of three (3) consecutive Business Days",
+      "section_reference": "Section 1.01 - Cash Dominion Event definition",
+      "intensity_score": 4,
+      "intensity_rationale": "Automatic trigger at $7.5M or 12.5% availability threshold with 3-day grace period",
+      "numeric_values": {
+        "percentage": 12.5,
+        "years": 0
+      }
+    },
+    {
+      "dimension": "P",
+      "covenant_type": "maintenance_covenants",
+      "text": "Financial Performance Covenant",
+      "section_reference": "Section 9.13",
+      "intensity_score": 3,
+      "intensity_rationale": "Financial performance covenant referenced but specific ratios not detailed in visible text",
+      "numeric_values": {}
+    },
+    {
+      "dimension": "P",
+      "covenant_type": "restricted_payments",
+      "text": "Restricted Payments, etc",
+      "section_reference": "Section 9.06",
+      "intensity_score": 3,
+      "intensity_rationale": "Restricted payments covenant present but specific limitations not detailed",
+      "numeric_values": {}
+    },
+    {
+      "dimension": "P",
+      "covenant_type": "debt_incurrence_tests",
+      "text": "Limitation on Indebtedness",
+      "section_reference": "Section 9.01",
+      "intensity_score": 3,
+      "intensity_rationale": "Debt incurrence limitations present but specific tests not detailed",
+      "numeric_values": {}
+    },
+    {
+      "dimension": "O",
+      "covenant_type": "accordion_incremental",
+      "text": "this Agreement may be amended (or amended and restated) with the written consent of the Required Lenders, the Administrative Agent, and the Borrowers (x) to add one or more additional credit facilities to this Agreement",
+      "section_reference": "Section 12.01",
+      "intensity_score": 3,
+      "intensity_rationale": "Accordion facility available with Required Lender consent but no specific size limits mentioned",
+      "numeric_values": {}
+    },
+    {
+      "dimension": "O",
+      "covenant_type": "amend_waiver_thresholds",
+      "text": "The Required Lenders may, or, with the consent of the Required Lenders or the Administrative Agent, as applicable, may, from time to time, (a) enter into with the relevant Credit Party or Credit Parties written amendments",
+      "section_reference": "Section 12.01",
+      "intensity_score": 3,
+      "intensity_rationale": "Standard Required Lender threshold for amendments and waivers",
+      "numeric_values": {}
+    },
+    {
+      "dimension": "P",
+      "covenant_type": "cash_dominion",
+      "text": "During such two (2) Business Day period, Revolving Agent will, if requested, discuss any such new or modified Reserve with Administrative Borrower",
+      "section_reference": "Section 1.01 - Borrowing Base definition",
+      "intensity_score": 4,
+      "intensity_rationale": "2-day notice period for reserve establishment with automatic borrowing restrictions",
+      "numeric_values": {
+        "years": 0
+      }
+    },
+    {
+      "dimension": "P",
+      "covenant_type": "information_rights",
+      "text": "Financial Information, Reports, Notices and Information",
+      "section_reference": "Section 8.01",
+      "intensity_score": 3,
+      "intensity_rationale": "Comprehensive reporting requirements but specific frequency not detailed in visible text",
+      "numeric_values": {}
+    },
+    {
+      "dimension": "E",
+      "covenant_type": "change_of_control_put",
+      "text": "Change of Control shall mean an event or series of events by which: (a) any Person or group shall acquire ownership, directly or indirectly, beneficially or of record, of Capital Stock of Administrative Borrower representing more than fifty percent (50%) of the aggregate ordinary voting power",
+      "section_reference": "Section 1.01 - Change of Control definition",
+      "intensity_score": 3,
+      "intensity_rationale": "50% change of control threshold defined but specific put provisions not detailed",
+      "numeric_values": {
+        "percentage": 50
+      }
+    },
+    {
+      "dimension": "E",
+      "covenant_type": "mandatory_redemption",
+      "text": "Mandatory Prepayments",
+      "section_reference": "Section 5.02",
+      "intensity_score": 3,
+      "intensity_rationale": "Mandatory prepayment provisions present but specific triggers not detailed in visible text",
+      "numeric_values": {}
+    },
+    {
+      "dimension": "P",
+      "covenant_type": "cross_default",
+      "text": "Events of Default",
+      "section_reference": "Section 10.01",
+      "intensity_score": 3,
+      "intensity_rationale": "Events of default provisions present but specific cross-default terms not detailed",
+      "numeric_values": {}
+    },
+    {
+      "dimension": "E",
+      "covenant_type": "purchase_option",
+      "text": "On one occasion exercised within 30 days of a Purchase Option Trigger Event, the Term Lenders shall have the option, but not the obligation, to (x) purchase from the Revolving Lenders all, but not less than all, of the Revolving Loans",
+      "section_reference": "Section 12.24",
+      "intensity_score": 3,
+      "intensity_rationale": "30-day purchase option for Term Lenders provides moderate exit control",
+      "numeric_values": {
+        "years": 0
+      }
+    }
+  ],
+  "raw_response": "[\n  {\n    \"dimension\": \"O\",\n    \"covenant_type\": \"PIK_toggle\",\n    \"text\": \"at the election of Administrative Borrower, 50% of the Applicable Margin portion of any interest payment that is due on a Term Loan in accordance with Sections 2.08(a) or (b) of this Agreement prior to the second anniversary of the Closing Date may be paid in kind (a \\\"PIK Election\\\")\",\n    \"section_reference\": \"Section 1.01 - Applicable Margin definition\",\n    \"intensity_score\": 4,\n    \"intensity_rationale\": \"50% PIK toggle with 75bps step-up and 2-year time limit provides disciplined flexibility\",\n    \"numeric_values\": {\n      \"percentage\": 50,\n      \"basis_points\": 75,\n      \"years\": 2\n    }\n  },\n  {\n    \"dimension\": \"E\",\n    \"covenant_type\": \"call_protection\",\n    \"text\": \"prior to the second anniversary of the Closing Date may be paid in kind\",\n    \"section_reference\": \"Section 1.01 - Applicable Margin definition\",\n    \"intensity_score\": 3,\n    \"intensity_rationale\": \"2-year protection period for PIK election provides moderate call protection\",\n    \"numeric_values\": {\n      \"years\": 2\n    }\n  },\n  {\n    \"dimension\": \"E\",\n    \"covenant_type\": \"prepayment_premium\",\n    \"text\": \"all Obligations of the Borrowers owing to such Non-Consenting Lender (including any Prepayment Premium) being replaced shall be paid in full\",\n    \"section_reference\": \"Section 12.07(b)\",\n    \"intensity_score\": 2,\n    \"intensity_rationale\": \"Prepayment premium referenced but specific terms not defined in visible text\",\n    \"numeric_values\": {}\n  },\n  {\n    \"dimension\": \"P\",\n    \"covenant_type\": \"mandatory_cash_sweep\",\n    \"text\": \"Cash Dominion Event means (i) the occurrence of a Specified Event of Default or (ii) Availability being less than the greater of (1) $7,500,000 and (2) 12.5% of the Maximum Revolver Amount for a period of three (3) consecutive Business Days\",\n    \"section_reference\": \"Section 1.01 - Cash Dominion Event definition\",\n    \"intensity_score\": 4,\n    \"intensity_rationale\": \"Automatic trigger at $7.5M or 12.5% availability threshold with 3-day grace period\",\n    \"numeric_values\": {\n      \"percentage\": 12.5,\n      \"years\": 0\n    }\n  },\n  {\n    \"dimension\": \"P\",\n    \"covenant_type\": \"maintenance_covenants\",\n    \"text\": \"Financial Performance Covenant\",\n    \"section_reference\": \"Section 9.13\",\n    \"intensity_score\": 3,\n    \"intensity_rationale\": \"Financial performance covenant referenced but specific ratios not detailed in visible text\",\n    \"numeric_values\": {}\n  },\n  {\n    \"dimension\": \"P\",\n    \"covenant_type\": \"restricted_payments\",\n    \"text\": \"Restricted Payments, etc\",\n    \"section_reference\": \"Section 9.06\",\n    \"intensity_score\": 3,\n    \"intensity_rationale\": \"Restricted payments covenant present but specific limitations not detailed\",\n    \"numeric_values\": {}\n  },\n  {\n    \"dimension\": \"P\",\n    \"covenant_type\": \"debt_incurrence_tests\",\n    \"text\": \"Limitation on Indebtedness\",\n    \"section_reference\": \"Section 9.01\",\n    \"intensity_score\": 3,\n    \"intensity_rationale\": \"Debt incurrence limitations present but specific tests not detailed\",\n    \"numeric_values\": {}\n  },\n  {\n    \"dimension\": \"O\",\n    \"covenant_type\": \"accordion_incremental\",\n    \"text\": \"this Agreement may be amended (or amended and restated) with the written consent of the Required Lenders, the Administrative Agent, and the Borrowers (x) to add one or more additional credit facilities to this Agreement\",\n    \"section_reference\": \"Section 12.01\",\n    \"intensity_score\": 3,\n    \"intensity_rationale\": \"Accordion facility available with Required Lender consent but no specific size limits mentioned\",\n    \"numeric_values\": {}\n  },\n  {\n    \"dimension\": \"O\",\n    \"covenant_type\": \"amend_waiver_thresholds\",\n    \"text\": \"The Required Lenders may, or, with the consent of the Required Lenders or the Administrative Agent, as applicable, may, from time to time, (a) enter into with the relevant Credit Party or Credit Parties written amendments\",\n    \"section_reference\": \"Section 12.01\",\n    \"intensity_score\": 3,\n    \"intensity_rationale\": \"Standard Required Lender threshold for amendments and waivers\",\n    \"numeric_values\": {}\n  },\n  {\n    \"dimension\": \"P\",\n    \"covenant_type\": \"cash_dominion\",\n    \"text\": \"During such two (2) Business Day period, Revolving Agent will, if requested, discuss any such new or modified Reserve with Administrative Borrower\",\n    \"section_reference\": \"Section 1.01 - Borrowing Base definition\",\n    \"intensity_score\": 4,\n    \"intensity_rationale\": \"2-day notice period for reserve establishment with automatic borrowing restrictions\",\n    \"numeric_values\": {\n      \"years\": 0\n    }\n  },\n  {\n    \"dimension\": \"P\",\n    \"covenant_type\": \"information_rights\",\n    \"text\": \"Financial Information, Reports, Notices and Information\",\n    \"section_reference\": \"Section 8.01\",\n    \"intensity_score\": 3,\n    \"intensity_rationale\": \"Comprehensive reporting requirements but specific frequency not detailed in visible text\",\n    \"numeric_values\": {}\n  },\n  {\n    \"dimension\": \"E\",\n    \"covenant_type\": \"change_of_control_put\",\n    \"text\": \"Change of Control shall mean an event or series of events by which: (a) any Person or group shall acquire ownership, directly or indirectly, beneficially or of record, of Capital Stock of Administrative Borrower representing more than fifty percent (50%) of the aggregate ordinary voting power\",\n    \"section_reference\": \"Section 1.01 - Change of Control definition\",\n    \"intensity_score\": 3,\n    \"intensity_rationale\": \"50% change of control threshold defined but specific put provisions not detailed\",\n    \"numeric_values\": {\n      \"percentage\": 50\n    }\n  },\n  {\n    \"dimension\": \"E\",\n    \"covenant_type\": \"mandatory_redemption\",\n    \"text\": \"Mandatory Prepayments\",\n    \"section_reference\": \"Section 5.02\",\n    \"intensity_score\": 3,\n    \"intensity_rationale\": \"Mandatory prepayment provisions present but specific triggers not detailed in visible text\",\n    \"numeric_values\": {}\n  },\n  {\n    \"dimension\": \"P\",\n    \"covenant_type\": \"cross_default\",\n    \"text\": \"Events of Default\",\n    \"section_reference\": \"Section 10.01\",\n    \"intensity_score\": 3,\n    \"intensity_rationale\": \"Events of default provisions present but specific cross-default terms not detailed\",\n    \"numeric_values\": {}\n  },\n  {\n    \"dimension\": \"E\",\n    \"covenant_type\": \"purchase_option\",\n    \"text\": \"On one occasion exercised within 30 days of a Purchase Option Trigger Event, the Term Lenders shall have the option, but not the obligation, to (x) purchase from the Revolving Lenders all, but not less than all, of the Revolving Loans\",\n    \"section_reference\": \"Section 12.24\",\n    \"intensity_score\": 3,\n    \"intensity_rationale\": \"30-day purchase option for Term Lenders provides moderate exit control\",\n    \"numeric_values\": {\n      \"years\": 0\n    }\n  }\n]",
+  "provider": "claude",
+  "dimension_scores": {
+    "E": 2.43,
+    "O": 3.33,
+    "P": 3.29
+  },
+  "CLI_base": 2.96,
+  "CLI": 3.62,
+  "dimension_scores_importance": {
+    "E": 2.36,
+    "O": 3.58,
+    "P": 3.39
+  },
+  "CLI_importance_base": 3.05,
+  "CLI_importance": 3.77,
+  "rho_OP": 0.4,
+  "interaction_term_equal": 0.66,
+  "interaction_term_importance": 0.73,
+  "beta": 0.15,
+  "covenant_counts": {
+    "E": 5,
+    "O": 3,
+    "P": 7
+  },
+  "covenant_details": {
+    "E": {
+      "call_protection": 3,
+      "prepayment_premium": 2,
+      "change_of_control_put": 3,
+      "mandatory_redemption": 3,
+      "purchase_option": 3
+    },
+    "O": {
+      "PIK_toggle": 4,
+      "accordion_incremental": 3,
+      "amend_waiver_thresholds": 3
+    },
+    "P": {
+      "mandatory_cash_sweep": 4,
+      "maintenance_covenants": 3,
+      "restricted_payments": 3,
+      "debt_incurrence_tests": 3,
+      "cash_dominion": 4,
+      "information_rights": 3,
+      "cross_default": 3
+    }
+  },
+  "missing_critical_covenants": {
+    "E": [
+      "make_whole"
+    ],
+    "O": [],
+    "P": []
+  }
+}

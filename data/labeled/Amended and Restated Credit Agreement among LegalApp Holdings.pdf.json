@@ -1,0 +1,190 @@
+{
+  "filename": "Amended and Restated Credit Agreement among LegalApp Holdings.pdf",
+  "covenants": [
+    {
+      "dimension": "P",
+      "covenant_type": "mandatory_cash_sweep",
+      "text": "Required ECF Percentage means, (i) with respect to any fiscal year ending prior to the effective date of the Conversion Option, (x) to the extent that the Recurring Revenue Leverage Ratio as of the last day of such fiscal year is greater than 1.50:1.00, fifty percent (50%), (y) to the extent that the Recurring Revenue Leverage Ratio as of the last day of such fiscal year is less than or equal to 1.50:1.00 but greater than or equal to 1.00:1.00, twenty-five percent (25%) and (z) to the extent that the Recurring Revenue Leverage Ratio as of the last day of such fiscal year is less than 1.00:1.00, zero percent (0%)",
+      "section_reference": "Schedule 1.1 - Required ECF Percentage definition",
+      "intensity_score": 3,
+      "intensity_rationale": "50% sweep at high leverage, 25% at moderate, 0% at low leverage - ratio-gated structure",
+      "numeric_values": {
+        "percentage": 50,
+        "ratio": "1.50"
+      }
+    },
+    {
+      "dimension": "P",
+      "covenant_type": "restricted_payments",
+      "text": "Permitted Management Expenses means management, consulting, expense reimbursement or other similar fees paid to any Equity Sponsor in an aggregate amount in any fiscal year of Parent not to exceed $500,000; provided that (i) Liquidity is not less than $1,500,000 immediately before and after giving effect to any payment of Permitted Management Expenses and (ii) immediately before and after giving effect to any payment of Permitted Management Expenses, no Event of Default has occurred and is continuing",
+      "section_reference": "Schedule 1.1 - Permitted Management Expenses definition",
+      "intensity_score": 4,
+      "intensity_rationale": "$1.5M liquidity requirement plus Event of Default restrictions on distributions",
+      "numeric_values": {
+        "percentage": null,
+        "years": null,
+        "basis_points": null,
+        "ratio": null
+      }
+    },
+    {
+      "dimension": "P",
+      "covenant_type": "maintenance_covenants",
+      "text": "Recurring Revenue Leverage Ratio means, as of any date of determination, the ratio of (a) the amount of Total Indebtedness as of such date, to (b) Recurring Revenue of Parent and its Subsidiaries for the relevant three (3) consecutive fiscal month period multiplied by four (4)",
+      "section_reference": "Schedule 1.1 - Recurring Revenue Leverage Ratio definition",
+      "intensity_score": 4,
+      "intensity_rationale": "Quarterly testing of leverage ratio with specific calculation methodology",
+      "numeric_values": {
+        "years": null,
+        "percentage": null,
+        "basis_points": null,
+        "ratio": null
+      }
+    },
+    {
+      "dimension": "P",
+      "covenant_type": "debt_incurrence_tests",
+      "text": "Maximum Incremental Term Loan Amount means an unlimited amount so long as, on a pro forma basis after giving effect to the proposed Incremental Term Loan and the use of proceeds thereof, (x) with respect to any Incremental Term Loan funded prior to the effective date of the Conversion Option, the Recurring Revenue Leverage Ratio does not exceed the lesser of 2.00:1.00 and the Recurring Revenue Leverage Ratio financial covenant level",
+      "section_reference": "Schedule 1.1 - Maximum Incremental Term Loan Amount definition",
+      "intensity_score": 4,
+      "intensity_rationale": "Pro forma leverage test of 2.00:1.00 for additional debt incurrence",
+      "numeric_values": {
+        "ratio": "2.00"
+      }
+    },
+    {
+      "dimension": "O",
+      "covenant_type": "accordion_incremental",
+      "text": "Borrower may at any time or from time to time after the Restatement Date, in accordance with and subject to the terms of this Agreement, by notice to the Agent, increase the size of the Term Loans or request one or more additional tranches of Term Loans; provided that each increase or new tranche of Incremental Term Loans shall be in an aggregate principal amount that is not less than $2,500,000 (and in minimum increments of $1,000,000 in excess thereof)",
+      "section_reference": "Section 2.2(b)(i)",
+      "intensity_score": 3,
+      "intensity_rationale": "$2.5M minimum with $1M increments - moderate sizing constraints",
+      "numeric_values": {
+        "years": null,
+        "percentage": null,
+        "basis_points": null,
+        "ratio": null
+      }
+    },
+    {
+      "dimension": "O",
+      "covenant_type": "MFN_MFN_sunset",
+      "text": "provided that in the event that the all-in yield (based on the lesser of a 4-year average life to maturity or the remaining life to maturity) for any Incremental Term Loans is greater than the corresponding all-in yield applicable to any Loan by more than fifty (50) basis points (such excess yield, the 'Yield Differential'), then the Index Rate Margin and LIBOR Rate Margin, as applicable, for all such Loans shall be increased by an amount equal to the Yield Differential",
+      "section_reference": "Section 2.2(b)(ii)",
+      "intensity_score": 4,
+      "intensity_rationale": "50 bps MFN protection with automatic margin adjustment mechanism",
+      "numeric_values": {
+        "basis_points": 50,
+        "years": 4
+      }
+    },
+    {
+      "dimension": "P",
+      "covenant_type": "information_rights",
+      "text": "Financial Statements, Reports, Certificates - Borrower shall deliver to Agent quarterly and annual financial statements, compliance certificates, and other reports as specified in Schedule 5.1",
+      "section_reference": "Section 5.1 and Schedule 5.1",
+      "intensity_score": 3,
+      "intensity_rationale": "Quarterly and annual reporting requirements with compliance certificates",
+      "numeric_values": {
+        "years": null,
+        "percentage": null,
+        "basis_points": null,
+        "ratio": null
+      }
+    },
+    {
+      "dimension": "O",
+      "covenant_type": "cure_rights_equity_cure",
+      "text": "Financial Covenant Cure has the meaning set forth in Section 7.2",
+      "section_reference": "Schedule 1.1 - Financial Covenant Cure definition",
+      "intensity_score": 3,
+      "intensity_rationale": "Equity cure rights available but specific terms not detailed in excerpt",
+      "numeric_values": {
+        "years": null,
+        "percentage": null,
+        "basis_points": null,
+        "ratio": null
+      }
+    },
+    {
+      "dimension": "P",
+      "covenant_type": "cross_default_acceleration",
+      "text": "Events of Default shall include failure to pay principal or interest when due, breach of covenants, cross-default to other material indebtedness, and other customary events that trigger acceleration of all Obligations",
+      "section_reference": "Section 8",
+      "intensity_score": 4,
+      "intensity_rationale": "Comprehensive cross-default provisions with automatic acceleration",
+      "numeric_values": {
+        "years": null,
+        "percentage": null,
+        "basis_points": null,
+        "ratio": null
+      }
+    },
+    {
+      "dimension": "P",
+      "covenant_type": "prepayment_waterfall",
+      "text": "following the occurrence and during the continuance of an Event of Default, Agent shall apply any and all payments received by Agent in respect of the Obligations, and any and all proceeds of Collateral received by Agent, in the following order: first, to all fees, costs, indemnities, liabilities, obligations and expenses incurred by or owing to Agent; second, to accrued and unpaid interest on Protective Advances; third, to Protective Advances; fourth, to all fees, costs, indemnities, liabilities, obligations and expenses incurred by or owing to any Lender",
+      "section_reference": "Section 2.4(b)(ii)",
+      "intensity_score": 4,
+      "intensity_rationale": "Detailed waterfall prioritizing agent fees, then protective advances, then lender obligations",
+      "numeric_values": {
+        "years": null,
+        "percentage": null,
+        "basis_points": null,
+        "ratio": null
+      }
+    }
+  ],
+  "raw_response": "Looking at this credit agreement, I can extract the following covenant clauses related to liquidity timing and control:\n\n```json\n[\n  {\n    \"dimension\": \"P\",\n    \"covenant_type\": \"mandatory_cash_sweep\",\n    \"text\": \"Required ECF Percentage means, (i) with respect to any fiscal year ending prior to the effective date of the Conversion Option, (x) to the extent that the Recurring Revenue Leverage Ratio as of the last day of such fiscal year is greater than 1.50:1.00, fifty percent (50%), (y) to the extent that the Recurring Revenue Leverage Ratio as of the last day of such fiscal year is less than or equal to 1.50:1.00 but greater than or equal to 1.00:1.00, twenty-five percent (25%) and (z) to the extent that the Recurring Revenue Leverage Ratio as of the last day of such fiscal year is less than 1.00:1.00, zero percent (0%)\",\n    \"section_reference\": \"Schedule 1.1 - Required ECF Percentage definition\",\n    \"intensity_score\": 3,\n    \"intensity_rationale\": \"50% sweep at high leverage, 25% at moderate, 0% at low leverage - ratio-gated structure\",\n    \"numeric_values\": {\n      \"percentage\": 50,\n      \"ratio\": \"1.50\"\n    }\n  },\n  {\n    \"dimension\": \"P\",\n    \"covenant_type\": \"restricted_payments\",\n    \"text\": \"Permitted Management Expenses means management, consulting, expense reimbursement or other similar fees paid to any Equity Sponsor in an aggregate amount in any fiscal year of Parent not to exceed $500,000; provided that (i) Liquidity is not less than $1,500,000 immediately before and after giving effect to any payment of Permitted Management Expenses and (ii) immediately before and after giving effect to any payment of Permitted Management Expenses, no Event of Default has occurred and is continuing\",\n    \"section_reference\": \"Schedule 1.1 - Permitted Management Expenses definition\",\n    \"intensity_score\": 4,\n    \"intensity_rationale\": \"$1.5M liquidity requirement plus Event of Default restrictions on distributions\",\n    \"numeric_values\": {\n      \"percentage\": null,\n      \"years\": null,\n      \"basis_points\": null,\n      \"ratio\": null\n    }\n  },\n  {\n    \"dimension\": \"P\",\n    \"covenant_type\": \"maintenance_covenants\",\n    \"text\": \"Recurring Revenue Leverage Ratio means, as of any date of determination, the ratio of (a) the amount of Total Indebtedness as of such date, to (b) Recurring Revenue of Parent and its Subsidiaries for the relevant three (3) consecutive fiscal month period multiplied by four (4)\",\n    \"section_reference\": \"Schedule 1.1 - Recurring Revenue Leverage Ratio definition\",\n    \"intensity_score\": 4,\n    \"intensity_rationale\": \"Quarterly testing of leverage ratio with specific calculation methodology\",\n    \"numeric_values\": {\n      \"years\": null,\n      \"percentage\": null,\n      \"basis_points\": null,\n      \"ratio\": null\n    }\n  },\n  {\n    \"dimension\": \"P\",\n    \"covenant_type\": \"debt_incurrence_tests\",\n    \"text\": \"Maximum Incremental Term Loan Amount means an unlimited amount so long as, on a pro forma basis after giving effect to the proposed Incremental Term Loan and the use of proceeds thereof, (x) with respect to any Incremental Term Loan funded prior to the effective date of the Conversion Option, the Recurring Revenue Leverage Ratio does not exceed the lesser of 2.00:1.00 and the Recurring Revenue Leverage Ratio financial covenant level\",\n    \"section_reference\": \"Schedule 1.1 - Maximum Incremental Term Loan Amount definition\",\n    \"intensity_score\": 4,\n    \"intensity_rationale\": \"Pro forma leverage test of 2.00:1.00 for additional debt incurrence\",\n    \"numeric_values\": {\n      \"ratio\": \"2.00\"\n    }\n  },\n  {\n    \"dimension\": \"O\",\n    \"covenant_type\": \"accordion_incremental\",\n    \"text\": \"Borrower may at any time or from time to time after the Restatement Date, in accordance with and subject to the terms of this Agreement, by notice to the Agent, increase the size of the Term Loans or request one or more additional tranches of Term Loans; provided that each increase or new tranche of Incremental Term Loans shall be in an aggregate principal amount that is not less than $2,500,000 (and in minimum increments of $1,000,000 in excess thereof)\",\n    \"section_reference\": \"Section 2.2(b)(i)\",\n    \"intensity_score\": 3,\n    \"intensity_rationale\": \"$2.5M minimum with $1M increments - moderate sizing constraints\",\n    \"numeric_values\": {\n      \"years\": null,\n      \"percentage\": null,\n      \"basis_points\": null,\n      \"ratio\": null\n    }\n  },\n  {\n    \"dimension\": \"O\",\n    \"covenant_type\": \"MFN_MFN_sunset\",\n    \"text\": \"provided that in the event that the all-in yield (based on the lesser of a 4-year average life to maturity or the remaining life to maturity) for any Incremental Term Loans is greater than the corresponding all-in yield applicable to any Loan by more than fifty (50) basis points (such excess yield, the 'Yield Differential'), then the Index Rate Margin and LIBOR Rate Margin, as applicable, for all such Loans shall be increased by an amount equal to the Yield Differential\",\n    \"section_reference\": \"Section 2.2(b)(ii)\",\n    \"intensity_score\": 4,\n    \"intensity_rationale\": \"50 bps MFN protection with automatic margin adjustment mechanism\",\n    \"numeric_values\": {\n      \"basis_points\": 50,\n      \"years\": 4\n    }\n  },\n  {\n    \"dimension\": \"P\",\n    \"covenant_type\": \"information_rights\",\n    \"text\": \"Financial Statements, Reports, Certificates - Borrower shall deliver to Agent quarterly and annual financial statements, compliance certificates, and other reports as specified in Schedule 5.1\",\n    \"section_reference\": \"Section 5.1 and Schedule 5.1\",\n    \"intensity_score\": 3,\n    \"intensity_rationale\": \"Quarterly and annual reporting requirements with compliance certificates\",\n    \"numeric_values\": {\n      \"years\": null,\n      \"percentage\": null,\n      \"basis_points\": null,\n      \"ratio\": null\n    }\n  },\n  {\n    \"dimension\": \"O\",\n    \"covenant_type\": \"cure_rights_equity_cure\",\n    \"text\": \"Financial Covenant Cure has the meaning set forth in Section 7.2\",\n    \"section_reference\": \"Schedule 1.1 - Financial Covenant Cure definition\",\n    \"intensity_score\": 3,\n    \"intensity_rationale\": \"Equity cure rights available but specific terms not detailed in excerpt\",\n    \"numeric_values\": {\n      \"years\": null,\n      \"percentage\": null,\n      \"basis_points\": null,\n      \"ratio\": null\n    }\n  },\n  {\n    \"dimension\": \"P\",\n    \"covenant_type\": \"cross_default_acceleration\",\n    \"text\": \"Events of Default shall include failure to pay principal or interest when due, breach of covenants, cross-default to other material indebtedness, and other customary events that trigger acceleration of all Obligations\",\n    \"section_reference\": \"Section 8\",\n    \"intensity_score\": 4,\n    \"intensity_rationale\": \"Comprehensive cross-default provisions with automatic acceleration\",\n    \"numeric_values\": {\n      \"years\": null,\n      \"percentage\": null,\n      \"basis_points\": null,\n      \"ratio\": null\n    }\n  },\n  {\n    \"dimension\": \"P\",\n    \"covenant_type\": \"prepayment_waterfall\",\n    \"text\": \"following the occurrence and during the continuance of an Event of Default, Agent shall apply any and all payments received by Agent in respect of the Obligations, and any and all proceeds of Collateral received by Agent, in the following order: first, to all fees, costs, indemnities, liabilities, obligations and expenses incurred by or owing to Agent; second, to accrued and unpaid interest on Protective Advances; third, to Protective Advances; fourth, to all fees, costs, indemnities, liabilities, obligations and expenses incurred by or owing to any Lender\",\n    \"section_reference\": \"Section 2.4(b)(ii)\",\n    \"intensity_score\": 4,\n    \"intensity_rationale\": \"Detailed waterfall prioritizing agent fees, then protective advances, then lender obligations\",\n    \"numeric_values\": {\n      \"years\": null,\n      \"percentage\": null,\n      \"basis_points\": null,\n      \"ratio\": null\n    }\n  }\n]\n```",
+  "provider": "claude",
+  "dimension_scores": {
+    "E": 1.0,
+    "O": 2.43,
+    "P": 3.71
+  },
+  "CLI_base": 2.18,
+  "CLI": 2.18,
+  "dimension_scores_importance": {
+    "E": 1.0,
+    "O": 1.92,
+    "P": 3.61
+  },
+  "CLI_importance_base": 1.97,
+  "CLI_importance": 1.97,
+  "rho_OP": 0.0,
+  "interaction_term_equal": 0.0,
+  "interaction_term_importance": 0.0,
+  "beta": 0.15,
+  "covenant_counts": {
+    "E": 0,
+    "O": 3,
+    "P": 7
+  },
+  "covenant_details": {
+    "E": {},
+    "O": {
+      "accordion_incremental": 3,
+      "MFN_MFN_sunset": 4,
+      "cure_rights_equity_cure": 3
+    },
+    "P": {
+      "mandatory_cash_sweep": 3,
+      "restricted_payments": 4,
+      "maintenance_covenants": 4,
+      "debt_incurrence_tests": 4,
+      "information_rights": 3,
+      "cross_default_acceleration": 4,
+      "prepayment_waterfall": 4
+    }
+  },
+  "missing_critical_covenants": {
+    "E": [
+      "call_protection",
+      "make_whole"
+    ],
+    "O": [
+      "PIK_toggle"
+    ],
+    "P": []
+  }
+}
